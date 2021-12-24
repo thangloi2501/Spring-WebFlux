@@ -17,7 +17,7 @@ public class WeatherService {
 
     public Flux<WeatherEvent> streamWeather() {
         Flux<Long> interval = Flux.interval(Duration.ofSeconds(1));
-        Flux<WeatherEvent> events = Flux.fromStream(Stream.generate(() -> new WeatherEvent(new Weather(getTemprature(), getHumidity(), getWindSpeed()),LocalDateTime.now())));
+        Flux<WeatherEvent> events = Flux.fromStream(Stream.generate(() -> new WeatherEvent(new Weather(getTemprature(), getHumidity(), getWindSpeed()), LocalDateTime.now())));
 
         return Flux.zip(events, interval, (key, value) -> key);
 

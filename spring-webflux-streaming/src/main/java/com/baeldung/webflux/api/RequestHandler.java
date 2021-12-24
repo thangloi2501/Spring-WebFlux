@@ -17,8 +17,8 @@ public class RequestHandler {
 
     public Mono<ServerResponse> streamWeather(ServerRequest request) {
         return ServerResponse.ok()
-                .contentType(MediaType.TEXT_EVENT_STREAM)
-                .body(weatherService.streamWeather(), WeatherEvent.class);
+                             .contentType(MediaType.TEXT_EVENT_STREAM)
+                             .body(weatherService.streamWeather(), WeatherEvent.class);
     }
 
 }
